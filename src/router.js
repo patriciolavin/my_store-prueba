@@ -28,9 +28,6 @@ const router = new Router({
       path: '/home',
       name: 'home',
       component: Home,
-      meta: {
-        requireLogin: true
-      }
     },
     {
       path: '/login',
@@ -42,6 +39,9 @@ const router = new Router({
       name: 'crearproducto',
       component: CreateProduct,
       // component: () => import(/* webpackChunkName: "create_products" */ './views/CreateProduct.vue')
+      meta: {
+        requireLogin: true
+      }
     },
 
   ]
@@ -52,7 +52,7 @@ router.beforeEach((to, from, next) => {
   let authRequired = to.matched.some(route => route.meta.requireLogin)
     console.log(user);
     if(!user  && authRequired) {
-      next('login');
+      next('home');
     } 
     else {
       next()
