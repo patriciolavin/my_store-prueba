@@ -121,8 +121,7 @@ export default {
                 .then( (response) => {
                     this.$store.dispatch('getProducts')
                     if(currentObj) {
-                        currentObj.output = response.data;  
-                        console.log(response.data)
+                        currentObj.output = response.data;
                         alert('Datos enviados existosamente')
                     }                
                     else {
@@ -161,7 +160,6 @@ export default {
                     this.image = response.data.image
                     this.price = response.data.price
                     this.description = response.data.description
-                    console.log(response)
                 })
             }
                 
